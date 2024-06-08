@@ -1,0 +1,22 @@
+{
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaVersion": "latest"
+  },
+
+  "extends": ["@rocketseat/eslint-config/react"],
+  "plugins": ["simple-import-sort"],
+
+  "rules": {
+    "simple-import-sort/imports": "error",
+    "simple-import-sort/exports": "error",
+    "import/first": "error",
+    "import/newline-after-import": "error",
+    "import/no-duplicates": "error",
+
+    "react/self-closing-comp": ["error", {
+      "component": true,
+      "html": true
+    }]
+  }
+}
