@@ -1,9 +1,8 @@
 import {
+  CartesianGrid,
   Line,
   LineChart,
   ResponsiveContainer,
-  // CartesianGrid,
-  // Tooltip,
   XAxis,
   YAxis,
 } from 'recharts'
@@ -43,6 +42,8 @@ export function RevenueChart() {
       <CardContent>
         <ResponsiveContainer width={'100%'} height={240}>
           <LineChart style={{ fontSize: 12 }} data={data}>
+            <CartesianGrid vertical={false} className="stroke-muted" />
+
             <XAxis
               stroke={colors.zinc[400]}
               tickLine={false}
