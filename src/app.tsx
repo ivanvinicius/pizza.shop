@@ -1,11 +1,13 @@
 import './globals.css'
 
+import { QueryClientProvider } from '@tanstack/react-query'
 import { Helmet, HelmetProvider } from 'react-helmet-async'
 import { RouterProvider } from 'react-router-dom'
 
 import { ThemeProvider } from '~/providers/theme-provider'
 
 import { Toaster } from './components/ui/sonner'
+import { queryClient } from './lib/react-query'
 import { router } from './router'
 
 export function App() {
@@ -15,7 +17,9 @@ export function App() {
         <Helmet titleTemplate="%s | Pizza Shop" />
         <Toaster richColors theme="light" />
 
-        <RouterProvider router={router} />
+        <QueryClientProvider client={queryClient}>
+          <RouterProvider router={router} />
+        </QueryClientProvider>
       </HelmetProvider>
     </ThemeProvider>
   )
