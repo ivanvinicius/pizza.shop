@@ -4,6 +4,8 @@ import { LineChart } from 'lucide-react'
 import { getMonthCanceledOrdersAmount } from '~/api/get-month-canceled-orders-amount'
 import { Card, CardContent, CardHeader, CardTitle } from '~/components/ui/card'
 
+import { MetricCardSekeleton } from './metric-card-skeleton'
+
 export function MonthCancelOrdersAmountCard() {
   const { data: monthCanceledOrderAmount } = useQuery({
     queryKey: ['metrics', 'month-canceled-orders-amount'],
@@ -20,7 +22,7 @@ export function MonthCancelOrdersAmountCard() {
       </CardHeader>
 
       <CardContent className="space-y-1">
-        {monthCanceledOrderAmount && (
+        {monthCanceledOrderAmount ? (
           <>
             <span className="text-2xl font-bold tracking-tight">
               {monthCanceledOrderAmount.amount.toLocaleString('pt-BR')}
@@ -38,6 +40,8 @@ export function MonthCancelOrdersAmountCard() {
               em relação ao mês passado
             </span>
           </>
+        ) : (
+          <MetricCardSekeleton />
         )}
       </CardContent>
     </Card>
